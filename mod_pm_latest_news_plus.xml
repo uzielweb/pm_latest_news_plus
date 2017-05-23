@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/**
+ * @copyright	Copyright © 2017 - All rights reserved.
+ * @license		GNU General Public License v2.0
+ * @generator	http://xdsoft/joomla-module-generator/
+ */
+-->
+<extension type="module" method="upgrade" client="site">
+	<name>MOD_PM_LATEST_NEWS_PLUS</name>
+	<creationDate>May 2017</creationDate>
+	<author>Ponto Mega</author>
+	<authorEmail>contato@pontomega.com.br</authorEmail>
+	<authorUrl>https://www.pontomega.com.br</authorUrl>
+	<copyright>Copyright © 2017 - All rights reserved.</copyright>
+	<license>GNU General Public License v2.0</license>
+	<version>1.0.0</version>
+	<description>MOD_PM_LATEST_NEWS_PLUS_DESCRIPTION</description>
+	<files>
+		<filename module="mod_pm_latest_news_plus">mod_pm_latest_news_plus.php</filename>
+		<filename>mod_pm_latest_news_plus.xml</filename>
+		<filename>index.html</filename>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+		<folder>assets</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+			<fieldset name="basic" label="MOD_BASIC" description="MOD_BASIC_FIELDSET_DESCRIPTION">
+				<field type="category" label="MOD_CATEGORY" name="category" description="MOD_CATEGORY_DESCRIPTION" default="" extension="com_content" class="" />
+				<field type="text" label="MOD_COUNT" name="count" description="MOD_COUNT_DESCRIPTION" default="" class="" size="32" maxlength="32" filter="" />
+				<field type="radio" label="MOD_SHOW_FEATURED" name="show_featured" description="MOD_SHOW_FEATURED_DESCRIPTION" value="0,1" default="" />
+				<field type="user" label="MOD_AUTHOR" name="author" description="MOD_AUTHOR_DESCRIPTION" class="" size="32" />
+				<field type="text" label="MOD_THUMBNAIL_WIDTH" name="thumbnail_width" description="MOD_THUMBNAIL_WIDTH_DESCRIPTION" default="200" class="" size="32" maxlength="32" filter="" />
+				<field type="text" label="MOD_THUMBNAIL_HEIGHT" name="thumbnail_height" description="MOD_THUMBNAIL_HEIGHT_DESCRIPTION" default="200" class="" size="32" maxlength="32" filter="" />
+				<field type="list" label="MOD_CROP_PROPORTION" name="crop_proportion" description="MOD_CROP_PROPORTION_DESCRIPTION" value="4:3,3:4,16:9,9:16,21:9,9:21,2:1,1:2,1:1" default="4:3" class="" >
+					<option value="0">Option 1</option>
+					<option value="1">Option 2</option>
+				</field>
+				<field type="list" label="MOD_ITEMS_PER_ROW" name="items_per_row" description="MOD_ITEMS_PER_ROW_DESCRIPTION" value="1,2,3,4,5,6,7,8,9,10,11,12" default="3" class="" >
+					<option value="0">Option 1</option>
+					<option value="1">Option 2</option>
+				</field>
+				<field type="media" label="MOD_DEFAULT_THUMBNAIL" name="default_thumbnail" description="MOD_DEFAULT_THUMBNAIL_DESCRIPTION" directory="" />
+				<field type="text" label="MOD_TEXT_LIMIT" name="text_limit" description="MOD_TEXT_LIMIT_DESCRIPTION" default="3" class="" size="32" maxlength="32" filter="" />
+				<field type="radio" label="MOD_SHOW_TITLE" name="show_title" description="MOD_SHOW_TITLE_DESCRIPTION" value="0,1" default="" />
+				<field type="radio" label="MOD_LINK_IN_TITLE" name="link_in_title" description="MOD_LINK_IN_TITLE_DESCRIPTION" value="0,1" default="" />
+				<field type="radio" label="MOD_SHOW_CATEGORY" name="show_category" description="MOD_SHOW_CATEGORY_DESCRIPTION" value="0,1" default="" />
+				<field type="radio" label="MOD_SHOW_LINK_IN_CATEGORY" name="show_link_in_category" description="MOD_SHOW_LINK_IN_CATEGORY_DESCRIPTION" value="0,1" default="" />
+				<field type="radio" label="MOD_SHOW_READ_MORE" name="show_read_more" description="MOD_SHOW_READ_MORE_DESCRIPTION" value="0,1" default="" />
+				<field type="list" label="MOD_BIG_SLIDER" name="big_slider" description="MOD_BIG_SLIDE" value="none,featured,others" default="others" class="" >
+					<option value="0">Option 1</option>
+					<option value="1">Option 2</option>
+				</field>
+				<field type="text" label="MOD_BIG_SLIDER_COUNTING" name="big_slider_counting" description="MOD_BIG_SLIDE_COUNTING" default="others" class="" size="32" maxlength="32" filter="" />
+				<field type="radio" label="MOD_AUTOPLAY" name="autoplay" description="MOD_AUTOPLAY_DESCRIPTION" value="none,featured,others" default="others" />
+				<field type="radio" label="MOD_AUTO_PLAY_BIG_SLIDER" name="auto_play_big_slider" description="MOD_AUTO_PLAY_BIG_SLIDER_DESCRIPTION" value="none,featured,others" default="others" />
+				<field type="radio" label="MOD_AUTO_PLAY_ARTICLES_SLIDER" name="auto_play_articles_slider" description="MOD_AUTO_PLAY_ARTICLES_SLIDER_DESCRIPTION" value="none,featured,others" default="others" />
+				<field type="radio" label="MOD_SHOW_NAVIGATION" name="show_navigation" description="MOD_SHOW_NAVIGATION_DESCRIPTION" value="none,featured,others" default="others" />
+				<field type="list" label="MOD_ANIMATEIN_BIG_SLIDER" name="animatein_big_slider" description="MOD_ANIMATEIN_BIG_SLIDER_DESCRIPTION" value="none,featured,others" default="others" class="" >
+					<option value="0">Option 1</option>
+					<option value="1">Option 2</option>
+				</field>
+				<field type="list" label="MOD_ANIMATEOUT_BIG_SLIDER" name="animateout_big_slider" description="MOD_ANIMATEOUT_BIG_SLIDER_DESCRIPTION" value="none,featured,others" default="others" class="" >
+					<option value="0">Option 1</option>
+					<option value="1">Option 2</option>
+				</field>
+				<field type="checkbox" label="MOD_ANIMATEIN_ARTICLES_SLIDER" name="animatein_articles_slider" description="MOD_ANIMATEIN_ARTICLES_SLIDER_DESCRIPTION" value="none,featured,others" default="others" class="" />
+				<field type="checkbox" label="MOD_ANIMATEOUT_ARTICLES_SLIDER" name="animateout_articles_slider" description="MOD_ANIMATEOUT_ARTICLES_SLIDER_DESCRIPTION" value="none,featured,others" default="others" class="" />
+			</fieldset>
+		</fields>
+
+<!--
+########################################################################################
+The following are a list of all the different types of fields you can add to this file
+They are here for copy pasting - neat eh?
+Full list https://docs.joomla.org/Standard_form_field_types
+########################################################################################
+
+https://docs.joomla.org/Calendar_form_field_type
+<field name="mycalendar" type="calendar" default="5-10-2008" label="Select a date" description="" format="%d-%m-%Y" />
+
+https://docs.joomla.org/Category_form_field_type
+<field name="mycategory" type="category" label="Select a category" description="" section="3" />
+
+https://docs.joomla.org/Editor_form_field_type
+<field name="myeditor" type="editors" default="none" label="Select an editor" />
+
+https://docs.joomla.org/Filelist_form_field_type
+<field name="myfile" type="filelist" default="" label="Select a file" description="" directory="administrator" filter="" exclude="" stripext="" />
+
+https://docs.joomla.org/Folderlist_form_field_type
+<field name="myfolder" type="folderlist" default="" label="Select a folder" directory="administrator" filter="" exclude="" stripext="" />
+
+https://docs.joomla.org/Helpsite_form_field_type
+<field name="myhelpsite" type="helpsites" default="" label="Select a help site" description="" />
+
+https://docs.joomla.org/Hidden_form_field_type
+<field name="mysecretvariable" type="hidden" default="" />
+
+https://docs.joomla.org/Imagelist_form_field_type
+<field name="myimage" type="imagelist" default="" label="Select an image" description="" directory="" exclude="" stripext="" />
+
+https://docs.joomla.org/Language_form_field_type
+<field name="mylanguage" type="languages" client="site" default="en-GB" label="Select a language" description="" />
+
+https://docs.joomla.org/List_form_field_type
+<field name="mylistvalue" type="list" default="" label="Select an option" description="">
+  <option value="0">Option 1</option>
+  <option value="1">Option 2</option>
+</field>
+
+https://docs.joomla.org/Menu_form_field_type
+<field name="mymenu" type="menu" default="mainmenu" label="Select a menu" description="Select a menu" />
+
+https://docs.joomla.org/Menuitem_form_field_type
+<field name="mymenuitem" type="menuitem" default="45" label="Select a menu item" description="Select a menu item" />
+
+https://docs.joomla.org/Password_form_field_type
+<field name="mypassword" type="password" default="secret" label="Enter a password" description="" size="5" />
+
+https://docs.joomla.org/Radio_form_field_type
+<field name="myradiovalue" type="radio" default="0" label="Select an option" description="" class="btn-group btn-group-yesno">
+  <option value="0">JYES</option>
+  <option value="1">JNO</option>
+</field>
+
+https://docs.joomla.org/Spacer_form_field_type
+<field type="spacer" default="&lt;b&gt;Advanced parameters&lt;/b&gt;" />
+<field type="spacer" name="myspacer" hr="true" />
+
+https://docs.joomla.org/SQL_form_field_type
+<field name="myfield" type="sql" default="10" label="Select an article" query="SELECT id, title FROM #__content" key_field="id" value_field="title" />
+
+https://docs.joomla.org/Text_form_field_type
+<field name="mytextvalue" type="text" default="Some text" label="Enter some text" description="" size="10" />
+
+https://docs.joomla.org/Textarea_form_field_type
+<field name="mytextarea" type="textarea" default="default" label="Enter some text" description="" rows="10" cols="5" />
+
+https://docs.joomla.org/Timezone_form_field_type
+<field name="mytimezone" type="timezones" default="-10" label="Select a timezone" description="" />
+
+https://docs.joomla.org/Usergroup_form_field_type
+<field name="myusergroups" type="usergroup" default="" label="Select a user group" description="" />
+-->
+	</config> 
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_pm_latest_news_plus.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_pm_latest_news_plus.ini</language>
+		<language tag="pt-BR">pt-BR/pt-BR.mod_pm_latest_news_plus.sys.ini</language>
+		<language tag="pt-BR">pt-BR/pt-BR.mod_pm_latest_news_plus.ini</language>
+	</languages>
+</extension>
